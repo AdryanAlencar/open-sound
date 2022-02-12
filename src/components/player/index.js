@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles.module.scss";
+const { globalShortcut } = window.require("@electron/remote");
 
 const PlayIcon = require("../../assets/icons/play-icon.png");
 const PauseIcon = require("../../assets/icons/pause-icon.png");
@@ -32,6 +33,14 @@ class Player extends React.Component{
     componentDidMount = () => {
         this.button.current?.click()
         setTimeout(() => this.button.current?.click(), 100)
+
+        globalShortcut.register(`Alt+CommandOrControl+${this.props.id}`, () => {
+            this.player.current.currentTime = 0;
+            this.player.current.play();
+            this.setState({
+                playing: true
+            })
+        })
     }
 
     formatTime = (seconds) =>{
@@ -47,8 +56,7 @@ class Player extends React.Component{
             if(this.state.playing){
                 this.player.current.currentTime = 0;
                 this.player.current.play();
-            }else{
-                console.log(this.player.current)
+            }else{                
                 this.player.current.pause();
             }
         })

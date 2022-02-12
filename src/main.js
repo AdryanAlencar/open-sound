@@ -1,7 +1,8 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, globalShortcut } = require('electron')
 const { initialize, enable } = require('@electron/remote/main');
-const path = require('path')
+const path = require('path');
+const { electron } = require('process');
 
 initialize();
 
@@ -32,12 +33,9 @@ function createWindow() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.whenReady().then(() => {
-    globalShortcut.register('Alt+CommandOrControl+1', () => {
-        console.log('Electron loves global shortcuts!')
-    })
+app.whenReady().then(() => {    
     createWindow()
-
+    electron.globalShortcut = globalShortcut;
     app.on('activate', function () {
         // On macOS it's common to re-create a window in the app when the
         // dock icon is clicked and there are no other windows open.
