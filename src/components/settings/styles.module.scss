@@ -1,11 +1,11 @@
 .Settings{
     display:  flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     width: 100%;
     background-color: #3f3f3f;
     border-radius: 10px;
     .subHeader{
-        border-radius: 10px;
+        border-radius: 5px 5px 10px 10px;
         background-color: #F4780B;
 
         .details{
@@ -32,7 +32,7 @@
 
         .header{
             width: 100%;
-            border-radius: 10px;
+            border-radius: 5px;
             box-sizing: border-box;
             background-color: #1d1d1d;
             padding: 10px;

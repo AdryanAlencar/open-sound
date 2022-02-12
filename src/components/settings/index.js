@@ -1,4 +1,5 @@
 import React from "react";
+import { PlayerList } from "../player";
 import styles from './styles.module.scss';
 
 const SearchIcon =  require("../../assets/icons/search-icon-ligth.png");
@@ -13,11 +14,6 @@ class Settings extends React.Component{
             <div className={styles.Settings}>
                 <div className={styles.subHeader}>
                     <div className={styles.header}>
-                        <div className={styles.title}>
-                            <h3>
-                                Preferências
-                            </h3>
-                        </div>
                         <div className={styles.tools}>
                             <div className={styles.search}>
                                 <div className={styles.icon}>
@@ -37,6 +33,7 @@ class Settings extends React.Component{
                         <span>Collection 1</span>
                     </div>
                 </div>
+                <PlayerList />
             </div>
         )
     }

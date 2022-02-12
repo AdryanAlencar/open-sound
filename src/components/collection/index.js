@@ -26,7 +26,7 @@ class Collection extends React.Component {
     }
 
     componentDidMount() {
-        console.log(styles);
+        
     }
 
     render() {

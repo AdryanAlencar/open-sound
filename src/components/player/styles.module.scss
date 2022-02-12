@@ -1,0 +1,47 @@
+.PlayerList{
+    display: flex;
+    flex: 1;
+    overflow-y: scroll;
+}
+
+.Player{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    width: 100%;
+    height: min-content;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid #dadada;
+
+    .details{
+        flex: 1;
+        p, label{
+            color: #dadada;
+            font-size: 1rem;
+            margin: 0px;
+        }
+
+        label{
+            font-size: 0.8rem;
+        }
+    }
+
+    button{
+        cursor: pointer;
+        border: none;
+        background: #dadada;
+        border-radius: 5px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img{
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
