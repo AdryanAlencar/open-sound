@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../../context/datacontext";
 import styles from "./styles.module.scss";
 const FolderIcon = require("../../assets/icons/folder-icon.png");
 
 const CollectionList = (props) => {
+
+    const {values, updateValues} = useContext(DataContext);
     return(
         <div className={styles.CollectionList}>
             {
-                props.list.map((item, index) => {
+                values.collections.map((item, index) => {
                     return(
                          <Collection
-                            title={`Collection ${index + 1}`}
+                            title={`${item.name} ${index + 1}`}
                             count={9}
+                            id={item.id}
+                            key={item.id}
                         />
                     )
                 })
@@ -20,6 +25,7 @@ const CollectionList = (props) => {
 }
 
 class Collection extends React.Component {
+    static contextType = DataContext;
 
     constructor(props){
         super(props)
@@ -29,9 +35,17 @@ class Collection extends React.Component {
         
     }
 
+    changeCurrentCollection(){
+        const collection = this.context.values.collections.find(collection => collection.id == this.props.id)
+
+        this.context.updateValues({
+            currentCollection: collection
+        })
+    }
+
     render() {
         return (
-            <div className={styles.collection}>
+            <div className={styles.collection} onClick={() => this.changeCurrentCollection()}>
                 <div className={styles.header}>
                     <span>
                         {this.props.count}

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../../context/datacontext";
 import styles from "./styles.module.scss";
 const { globalShortcut } = window.require("@electron/remote");
 
@@ -7,13 +8,21 @@ const PauseIcon = require("../../assets/icons/pause-icon.png");
 const TrashIcon = require("../../assets/icons/trash-icon.png");
 
 const PlayerList = () => {
+    const { values } = useContext(DataContext);
+
     return(
         <div className={styles.PlayerList}>
-            <Player 
-                id={0}
-                name="Teste"
-                path="file:///home/adryan/Downloads/y2meta.com%20-%20EKBALLO%20-%20Erick%20Mathias%20&%20Alessandro%20Vilas%20Boas%20I%20ONE%20Sounds%20(Clipe%20Official)%20(128%20kbps).mp3"
-            />
+            {
+                values.currentCollection.tracks.map(item => {
+                    return <Player 
+                        id={item.id}
+                        name={item.name}
+                        path={item.path}
+                        key={item.id}
+                    />
+                })
+            }
+            
         </div>
     )
 }
@@ -33,6 +42,12 @@ class Player extends React.Component{
     componentDidMount = () => {
         this.button.current?.click()
         setTimeout(() => this.button.current?.click(), 100)
+
+        this.player.current.addEventListener('ended', () => {
+            this.setState({
+                playing: false
+            })
+        })
 
         globalShortcut.register(`Alt+CommandOrControl+${this.props.id}`, () => {
             this.player.current.currentTime = 0;
@@ -63,6 +78,7 @@ class Player extends React.Component{
     }
 
     render(){
+        console.log(this.props)
         return(
             <div className={styles.Player}>
                 <div className={styles.icon}>

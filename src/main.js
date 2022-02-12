@@ -17,8 +17,7 @@ function createWindow() {
             contextIsolation: false,
             backgroundThrottling: false,
             nativeWindowOpen: false,
-            webSecurity: false,
-            preload: path.join(__dirname, 'preload.js')
+            webSecurity: false
         }
     })
 
