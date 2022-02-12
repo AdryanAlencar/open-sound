@@ -1,6 +1,8 @@
 .CollectionList{
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
+    justify-content: center;
+    align-items: center;
 }
 
 .collection{
@@ -11,7 +13,8 @@
     padding: 10px;
     border-radius: 5px;
     box-sizing: border-box;
-    width: min-content;        
+    width: min-content;
+    height: min-content;  
     margin: 0 auto;
 
     cursor: pointer;
@@ -23,8 +26,8 @@
 
 
     .header{
-        width: 100px;
-        height: 100px;
+        width: 75px;
+        height: 75px;
         position: relative;
 
         span{
@@ -71,7 +74,7 @@
 
         h3{            
             margin: 0;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: bold;
             color: #fff;            
         }        

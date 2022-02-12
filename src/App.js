@@ -1,5 +1,6 @@
 import './App.css';
 import { Collection, CollectionList } from './components/collection';
+import { Settings } from './components/settings';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             }
           ]}
         />
+        <Settings />
       </header>
     </div>
   );
