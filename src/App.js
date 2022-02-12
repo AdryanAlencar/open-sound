@@ -1,14 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
-import { Collection } from './components/collection';
+import { Collection, CollectionList } from './components/collection';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Collection 
-          title="My Collection"
-          count={10}
+        <CollectionList 
+          list={[
+            {
+              index: 0
+            },
+            {
+              index: 1
+            },
+            {
+              index: 2
+            },
+            {
+              index: 3
+            },
+            {
+              index: 4
+            },
+            {
+              index: 5
+            },
+            {
+              index: 6
+            },
+            {
+              index: 7
+            },
+            {
+              index: 8
+            }
+          ]}
         />
       </header>
     </div>

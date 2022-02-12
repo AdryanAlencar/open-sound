@@ -2,6 +2,23 @@ import React from "react";
 import styles from "./styles.module.scss";
 const FolderIcon = require("../../assets/icons/folder-icon.png");
 
+const CollectionList = (props) => {
+    return(
+        <div className={styles.CollectionList}>
+            {
+                props.list.map((item, index) => {
+                    return(
+                         <Collection
+                            title={`Collection ${index + 1}`}
+                            count={9}
+                        />
+                    )
+                })
+            }
+        </div>
+    )
+}
+
 class Collection extends React.Component {
 
     constructor(props){
@@ -33,4 +50,4 @@ class Collection extends React.Component {
     }
 }
 
-export { Collection }
+export { Collection, CollectionList }

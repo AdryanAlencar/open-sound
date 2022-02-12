@@ -1,3 +1,8 @@
+.CollectionList{
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+}
+
 .collection{
     display: flex;
     flex-direction: column;
